@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafío Clever Internship</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f2f2f2;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #cc0000;
+            margin-bottom: 30px;
+        }
+
+        .caja {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 6px;
+        }
+
+        input {
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #cc0000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #a30000;
+        }
+
+        .resultado {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🚀 Desafío Clever Internship</h1>
+
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+
+
+    <div class="caja">
+
+        <h2>1️⃣ Suma de Dígitos</h2>
+
+        <form method="POST">
+
+            <input
+                type="number"
+                name="numero"
+                placeholder="Ejemplo: 12345"
+                required>
+
+            <button>Calcular</button>
+
+        </form>
+
+        {% if suma != "" %}
+        <p class="resultado">Resultado: {{ suma }}</p>
+        {% endif %}
+
+    </div>
+
+
+    <div class="caja">
+
+        <h2>2️⃣ Palíndromo</h2>
+
+        <form method="POST">
+
+            <input
+                type="text"
+                name="texto"
+                placeholder="Ejemplo: salas"
+                required>
+
+            <button>Verificar</button>
+
+        </form>
+
+        {% if palindromo != "" %}
+        <p class="resultado">Resultado: {{ palindromo }}</p>
+        {% endif %}
+
+    </div>
+
+
+    <div class="caja">
+
+        <h2>3️⃣ Ordenamiento</h2>
+
+        <form method="POST">
+
+            <input
+                type="text"
+                name="lista"
+                placeholder="Ejemplo: 5,-2,10,0,3"
+                required>
+
+            <button>Ordenar</button>
+
+        </form>
+
+        {% if orden != "" %}
+        <p class="resultado">Resultado: {{ orden }}</p>
+        {% endif %}
+
+    </div>
+
+
+</body>
+</html>
