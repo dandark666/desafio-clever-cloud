@@ -5,11 +5,7 @@ import os
 app = Flask(__name__)
 
 
-
 def digitsSum(inputInt):
-    """
-    Regresa la suma de los dígitos de un número entero
-    """
     total = 0
 
     for digito in str(abs(inputInt)):
@@ -19,18 +15,11 @@ def digitsSum(inputInt):
 
 
 def isPalindrome(inputStr):
-    """
-    Verifica si un texto es palíndromo
-    """
     texto = inputStr.lower().strip()
     return texto == texto[::-1]
 
 
 def integerSort(inputArray):
-    """
-    Ordena una lista sin usar sort() (Bubble Sort)
-    """
-
     resultado = inputArray.copy()
     n = len(resultado)
 
@@ -43,7 +32,6 @@ def integerSort(inputArray):
     return resultado
 
 
-
 @app.route("/", methods=["GET", "POST"])
 def inicio():
 
@@ -54,7 +42,6 @@ def inicio():
 
     if request.method == "POST":
 
-        # SUMA DE DÍGITOS
         if "numero" in request.form:
 
             try:
@@ -64,15 +51,11 @@ def inicio():
             except:
                 error = "❌ Ingresa un número válido"
 
-
-        # PALÍNDROMO
         if "texto" in request.form:
 
             texto = request.form["texto"]
             resultado_palindromo = isPalindrome(texto)
 
-
-        # ORDENAMIENTO
         if "lista" in request.form:
 
             try:
@@ -84,7 +67,6 @@ def inicio():
             except:
                 error = "❌ Formato incorrecto. Usa: 1,2,3"
 
-
     return render_template(
         "index.html",
         suma=resultado_suma,
@@ -92,8 +74,6 @@ def inicio():
         orden=resultado_orden,
         error=error
     )
-
-
 
 
 if __name__ == "__main__":
